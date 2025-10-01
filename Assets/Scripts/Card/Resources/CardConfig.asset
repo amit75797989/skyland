@@ -16,48 +16,60 @@ MonoBehaviour:
   - cardId: 0
     frontIcon: {fileID: 475772434, guid: 764db28df5b223741ad92c43280d1f09, type: 3}
     matchSFX: {fileID: 8300000, guid: a5c9bb619663d14448c2479f770dbe7f, type: 3}
+    misMatchSFX: {fileID: 8300000, guid: 24b594ad93093bf4781a7c38cb996a50, type: 3}
     flipSFX: {fileID: 8300000, guid: 0f22f3b3ec86c304e87bee1df23879e0, type: 3}
   - cardId: 1
     frontIcon: {fileID: 588278662, guid: 764db28df5b223741ad92c43280d1f09, type: 3}
     matchSFX: {fileID: 8300000, guid: a5c9bb619663d14448c2479f770dbe7f, type: 3}
+    misMatchSFX: {fileID: 8300000, guid: 24b594ad93093bf4781a7c38cb996a50, type: 3}
     flipSFX: {fileID: 8300000, guid: 0f22f3b3ec86c304e87bee1df23879e0, type: 3}
   - cardId: 2
     frontIcon: {fileID: -171135108, guid: 764db28df5b223741ad92c43280d1f09, type: 3}
     matchSFX: {fileID: 8300000, guid: a5c9bb619663d14448c2479f770dbe7f, type: 3}
+    misMatchSFX: {fileID: 8300000, guid: 24b594ad93093bf4781a7c38cb996a50, type: 3}
     flipSFX: {fileID: 8300000, guid: 0f22f3b3ec86c304e87bee1df23879e0, type: 3}
   - cardId: 3
     frontIcon: {fileID: -1027938850, guid: 764db28df5b223741ad92c43280d1f09, type: 3}
     matchSFX: {fileID: 8300000, guid: a5c9bb619663d14448c2479f770dbe7f, type: 3}
+    misMatchSFX: {fileID: 8300000, guid: 24b594ad93093bf4781a7c38cb996a50, type: 3}
     flipSFX: {fileID: 8300000, guid: 0f22f3b3ec86c304e87bee1df23879e0, type: 3}
   - cardId: 4
     frontIcon: {fileID: -1852238610, guid: 764db28df5b223741ad92c43280d1f09, type: 3}
     matchSFX: {fileID: 8300000, guid: a5c9bb619663d14448c2479f770dbe7f, type: 3}
+    misMatchSFX: {fileID: 8300000, guid: 24b594ad93093bf4781a7c38cb996a50, type: 3}
     flipSFX: {fileID: 8300000, guid: 0f22f3b3ec86c304e87bee1df23879e0, type: 3}
   - cardId: 5
     frontIcon: {fileID: 520963271, guid: 764db28df5b223741ad92c43280d1f09, type: 3}
     matchSFX: {fileID: 8300000, guid: a5c9bb619663d14448c2479f770dbe7f, type: 3}
+    misMatchSFX: {fileID: 8300000, guid: 24b594ad93093bf4781a7c38cb996a50, type: 3}
     flipSFX: {fileID: 8300000, guid: 0f22f3b3ec86c304e87bee1df23879e0, type: 3}
   - cardId: 6
     frontIcon: {fileID: -1760161348, guid: 764db28df5b223741ad92c43280d1f09, type: 3}
     matchSFX: {fileID: 8300000, guid: a5c9bb619663d14448c2479f770dbe7f, type: 3}
+    misMatchSFX: {fileID: 8300000, guid: 24b594ad93093bf4781a7c38cb996a50, type: 3}
     flipSFX: {fileID: 8300000, guid: 0f22f3b3ec86c304e87bee1df23879e0, type: 3}
   - cardId: 7
     frontIcon: {fileID: 446414028, guid: 764db28df5b223741ad92c43280d1f09, type: 3}
     matchSFX: {fileID: 8300000, guid: a5c9bb619663d14448c2479f770dbe7f, type: 3}
+    misMatchSFX: {fileID: 8300000, guid: 24b594ad93093bf4781a7c38cb996a50, type: 3}
     flipSFX: {fileID: 8300000, guid: 0f22f3b3ec86c304e87bee1df23879e0, type: 3}
   - cardId: 8
     frontIcon: {fileID: 961927310, guid: 764db28df5b223741ad92c43280d1f09, type: 3}
     matchSFX: {fileID: 8300000, guid: a5c9bb619663d14448c2479f770dbe7f, type: 3}
+    misMatchSFX: {fileID: 8300000, guid: 24b594ad93093bf4781a7c38cb996a50, type: 3}
     flipSFX: {fileID: 8300000, guid: 0f22f3b3ec86c304e87bee1df23879e0, type: 3}
   - cardId: 9
     frontIcon: {fileID: -47733668, guid: 764db28df5b223741ad92c43280d1f09, type: 3}
     matchSFX: {fileID: 8300000, guid: a5c9bb619663d14448c2479f770dbe7f, type: 3}
+    misMatchSFX: {fileID: 8300000, guid: 24b594ad93093bf4781a7c38cb996a50, type: 3}
     flipSFX: {fileID: 8300000, guid: 0f22f3b3ec86c304e87bee1df23879e0, type: 3}
   - cardId: 10
     frontIcon: {fileID: -418454010, guid: 764db28df5b223741ad92c43280d1f09, type: 3}
     matchSFX: {fileID: 8300000, guid: a5c9bb619663d14448c2479f770dbe7f, type: 3}
+    misMatchSFX: {fileID: 8300000, guid: 24b594ad93093bf4781a7c38cb996a50, type: 3}
     flipSFX: {fileID: 8300000, guid: 0f22f3b3ec86c304e87bee1df23879e0, type: 3}
   - cardId: 11
     frontIcon: {fileID: 74601248, guid: 764db28df5b223741ad92c43280d1f09, type: 3}
     matchSFX: {fileID: 8300000, guid: a5c9bb619663d14448c2479f770dbe7f, type: 3}
+    misMatchSFX: {fileID: 8300000, guid: 24b594ad93093bf4781a7c38cb996a50, type: 3}
     flipSFX: {fileID: 8300000, guid: 0f22f3b3ec86c304e87bee1df23879e0, type: 3}

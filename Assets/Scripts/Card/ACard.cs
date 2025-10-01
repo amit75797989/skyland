@@ -1,42 +1,66 @@
-using CardMatchGame;
-using System.Collections;
 using UnityEngine;
 
-public abstract class ACard : MonoBehaviour,ICard
+namespace CardMatchGame
 {
-    protected CardData cardData;
-    protected bool isFlipped = false;
-    protected bool isMatched = false;
-
-    public bool IsMatched => isMatched;
-
-    public virtual void InitCard(CardData data)
+    public abstract class ACard : MonoBehaviour, ICard
     {
-        this.cardData = data;
-    }
+        [SerializeField] protected float flipTime;
+        protected CardData cardData;
+        protected bool isFlipped = false;
+        protected bool isMatched = false;
 
-    public virtual void Flip()
-    {
-        if (isMatched) return;
+        public bool IsMatched => isMatched;
+        public bool IsFlipped => isFlipped;
 
-        isFlipped = !isFlipped;
-        StartCoroutine(PlayFlipAnimation(isFlipped));
-    }
+        public float FlipTime
+        {
+            get
+            {
+                return flipTime;
+            }
+        }
+        public int CardId
+        {
+            get
+            {
+                return cardData.CardId;
+            }
+        }
 
-    protected abstract IEnumerator PlayFlipAnimation(bool showFront);
+        public CardData CardData
+        {
+            get 
+            { 
+                return cardData; 
+            }
+        }
 
-    public virtual void FlipBack()
-    {
-        
-    }
+        public virtual void InitCard(CardData data)
+        {
+            this.cardData = data;
+        }
 
-    public virtual void ShowMatched()
-    {
-        
-    }
+        public virtual void Flip()
+        {
+            if (isMatched) return;
 
-    public virtual void ShowMisMatched()
-    {
-        
+            isFlipped = !isFlipped;            
+        }        
+
+        public virtual void FlipBack()
+        {
+
+        }
+
+        public virtual void ShowMatched()
+        {
+
+        }
+
+        public virtual void ShowMisMatched()
+        {
+
+        }
     }
 }
+

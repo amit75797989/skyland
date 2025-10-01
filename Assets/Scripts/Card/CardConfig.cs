@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace CardMatchGame
 {
-    [CreateAssetMenu(fileName = "NewCardConfig", menuName = "CardMatchGame/CardConfig")]
+    [CreateAssetMenu(fileName = "NewCardConfig", menuName = "CardMatchGame/NewCardConfig")]
     public class CardConfig : ScriptableObject
     {
         [SerializeField] private CardData[] cardConfig;
@@ -31,6 +31,7 @@ namespace CardMatchGame
         [SerializeField] private int cardId;
         [SerializeField] private Sprite frontIcon;
         [SerializeField] private AudioClip matchSFX;
+        [SerializeField] private AudioClip misMatchSFX;
         [SerializeField] private AudioClip flipSFX;
 
         public int CardId
@@ -53,6 +54,14 @@ namespace CardMatchGame
             get
             {
                 return matchSFX;
+            }
+        }
+
+        public AudioClip MisMatchSFX
+        {
+            get
+            {
+                return misMatchSFX;
             }
         }
         public AudioClip FlipSFC

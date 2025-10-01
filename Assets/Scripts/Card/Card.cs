@@ -7,14 +7,15 @@ namespace CardMatchGame
     public class Card : ACard
     {
         private static readonly WaitForEndOfFrame _waitForEndOfFrame = new WaitForEndOfFrame();
-        [SerializeField] private float flipTime;
+        
         [SerializeField] private Image mCardIcon;
 
         private Sprite mBackIcon;
         private Coroutine mFlipCOR;
+       
 
         private void Awake()
-        {            
+        {
             mBackIcon = mCardIcon.sprite;
         }
 
@@ -22,29 +23,36 @@ namespace CardMatchGame
         {
             base.InitCard(data);
             Flip();
-            Invoke("FlipBack", 5f);
+            Invoke("FlipBack", 2f);
         }
-
-
 
         /// <summary>
         /// To flip card to show choosen icon
         /// </summary>
         public override void Flip()
         {
-            if (isFlipped) return;
+            if (isFlipped || isMatched) return;
             isFlipped = true;
-            AudioHandler.Instance.PlaySFX(cardData.FlipSFC);
+            if (mFlipCOR != null)
+            {
+                StopCoroutine(mFlipCOR);
+            }
             mCardIcon.sprite = mBackIcon;
+            
             mFlipCOR = StartCoroutine(FlipRotation(transform, flipTime, true));
         }
+
+        
 
         /// <summary>
         /// To flip card to hide choosen icon
         /// </summary>
         public override void FlipBack()
         {
-            isFlipped = false;
+            if (mFlipCOR != null)
+            {
+                StopCoroutine(mFlipCOR);
+            }
             mCardIcon.sprite = cardData.CardFrontIcon;
             mFlipCOR = StartCoroutine(FlipRotation(transform, flipTime, false));
         }
@@ -54,9 +62,8 @@ namespace CardMatchGame
         /// </summary>
         public override void ShowMatched()
         {
-            AudioHandler.Instance.PlaySFX(cardData.MatchSFX);
-            mFlipCOR = StartCoroutine(ScaleUpWithBounce(transform, Vector3.one * 1.2f, flipTime));
-           // mFlipCOR = StartCoroutine(ScaleUpDown(transform));
+            isMatched = true;            
+            mFlipCOR = StartCoroutine(ScaleUpWithBounce(transform, Vector3.one * 1.2f, flipTime));           
         }
 
         IEnumerator ScaleUpDown(Transform target, float scaleFactor = 1.2f, float duration = 0.5f, int repeatCount = 1)
@@ -96,26 +103,13 @@ namespace CardMatchGame
         /// </summary>
         public override void ShowMisMatched()
         {
-            StartCoroutine(DampedSwingRotation(transform));
+            isFlipped= true;
+            mFlipCOR= StartCoroutine(DampedSwingRotation(transform));
         }
-
-        /// <summary>
-        /// flip card on select card
-        /// </summary>
-        public void OnClick()
-        {
-            if (!isFlipped)
-            {
-                Flip();
-            }
-            //else
-            //{
-            //    FlipBack();            
-            //}        
-        }
-
+       
         IEnumerator FlipRotation(Transform targetObj, float flipTime, bool flipForward)
         {
+            targetObj.localEulerAngles = Vector3.zero;
             Quaternion startRot = targetObj.rotation;
             Quaternion midRot = Quaternion.Euler(0, 90, 0);
             Quaternion endRot = Quaternion.Euler(0, flipForward ? 180 : 0, 0);
@@ -131,7 +125,7 @@ namespace CardMatchGame
             }
 
             targetObj.rotation = midRot;
-            mCardIcon.sprite = isFlipped ? cardData.CardFrontIcon : mBackIcon;
+            mCardIcon.sprite = flipForward ? cardData.CardFrontIcon : mBackIcon;
             yield return _waitForEndOfFrame;
             t = 0f;
 
@@ -144,7 +138,8 @@ namespace CardMatchGame
             }
 
             targetObj.rotation = endRot;
-          //  ShowMatched();
+            
+            isFlipped = flipForward; 
         }
 
 
@@ -226,14 +221,7 @@ namespace CardMatchGame
             {
                 StopCoroutine(mFlipCOR);
             }
-        }
-
-        protected override IEnumerator PlayFlipAnimation(bool showFront)
-        {
-            throw new System.NotImplementedException();
-        }
-
-
+        }  
     }
 }
 

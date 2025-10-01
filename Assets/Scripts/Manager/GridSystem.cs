@@ -26,6 +26,18 @@ namespace CardMatchGame.Handler
         private List<RectTransform> mCardPool = new List<RectTransform>();
 
 
+        public float MaxScale
+        {
+            get
+            {
+                return maxScale;
+            }
+            set
+            {
+                maxScale = value;                
+            }
+        }
+
         public void GetCards<T>(ref List<T> newList)
         {
             newList.Clear();
