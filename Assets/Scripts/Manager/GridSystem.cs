@@ -35,11 +35,11 @@ namespace CardMatchGame.Handler
             }
         }
 
-        private void Start()
-        {
-            RebuildGrid();
-            mLastSize = parentRect.rect.size;
-        }
+        //private void Start()
+        //{
+        //    RebuildGrid();
+        //    mLastSize = parentRect.rect.size;
+        //}
 
         public void SetMarging(float left, float right, float top, float bottom)
         {
@@ -48,14 +48,20 @@ namespace CardMatchGame.Handler
             topMargin = top;
             bottomMargin = bottom;
         }
-        public void InitGridLayout(int rows, int columns, float spacing)
+        public void InitGridLayout(int rows, int columns, float spacing,GameObject cardPrefab=null)
         {
+            if (cardPrefab != null)
+            {
+                this.cardPrefab= cardPrefab;
+            }
             this.rows = rows;
             this.columns = columns;
             this.spacing = spacing;
             RebuildGrid();
             mLastSize = parentRect.rect.size;
         }
+
+
 
         private void Update()
         {

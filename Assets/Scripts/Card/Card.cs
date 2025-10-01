@@ -11,14 +11,21 @@ namespace CardMatchGame
         [SerializeField] private Image mCardIcon;
 
         private Sprite mBackIcon;
+        private Coroutine mFlipCOR;
 
         private void Awake()
         {            
             mBackIcon = mCardIcon.sprite;
         }
 
+        public override void InitCard(CardData data)
+        {
+            base.InitCard(data);
+            Flip();
+            Invoke("FlipBack", 5f);
+        }
 
-        private Coroutine mFlipCOR;
+
 
         /// <summary>
         /// To flip card to show choosen icon

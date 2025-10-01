@@ -18,7 +18,7 @@ namespace CardMatchGame
             }            
             return null;
         }
-        public List<CardData> GetCardConfigArray() 
+        public List<CardData> GetCardList() 
         {  
             return cardConfig.ToList(); 
         }
