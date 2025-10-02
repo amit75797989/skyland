@@ -1,3 +1,16 @@
+/*
+ * ---------------------------------------------------------------
+ * Author      : Amit Pandey
+ * Email       : ap3400568@gmail.com
+ * Role        : Unity Developer
+ * 
+ * Summary     : This script handles Gameplay Scene for showing playing turn and total found matches
+ *               
+ *
+ * ---------------------------------------------------------------
+ */
+
+
 
 using UnityEngine;
 using UnityEngine.UI;

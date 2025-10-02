@@ -1,41 +1,63 @@
+/*
+ * ---------------------------------------------------------------
+ * Author      : Amit Pandey
+ * Email       : ap3400568@gmail.com
+ * Role        : Unity Developer
+ * 
+ * Summary     : This script handles Menu Scene for showing Current Level and play game
+ *               
+ *
+ * ---------------------------------------------------------------
+ */
+
+
+
 using CardMatchGame;
+using CardMatchGame.Storage;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField]private Dropdown menuDropdown;
+    [SerializeField]private Button playBtnPrefab;
+    [SerializeField] private Transform content; 
 
-    private GameLevelConfig mGameLevelConfig;
 
     private void Start()
     {
-        
-        mGameLevelConfig = Resources.Load<GameLevelConfig>("GameLevelConfig");
-        menuDropdown.ClearOptions();
+        GameStatusData gameStatusData= PersistentStorage.Instance.Load< GameStatusData>(StorageEnum.GameStatus.ToString());
+        if(gameStatusData==null) gameStatusData=new GameStatusData();
 
-        for(int i = 0; i < mGameLevelConfig.GetGridSizeData().Length; i++)
+        LevelData[] levelDatas = Resources.Load<GameLevelConfig>("GameLevelConfig").GetGridSizeData();  
+        for(int i = 0; i< levelDatas.Length; i++)
         {
-            menuDropdown.options.Add(new Dropdown.OptionData(mGameLevelConfig.GetGridSizeData()[i].Lebal));
-            if (PlayerPrefs.GetInt("level", 0) == mGameLevelConfig.GetGridSizeData()[i].Id)
+            Button btn = Instantiate(playBtnPrefab, content);
+            btn.GetComponentInChildren<Text>().text = levelDatas[i].Lebal;
+            btn.transform.localScale = levelDatas[i].Id == gameStatusData.LevelId ? Vector3.one * 1.2f : Vector3.one;
+            if (levelDatas[i].Id <= gameStatusData.LevelId)
             {
-                menuDropdown.value = i;
+                int LevelId = levelDatas[i].Id;
+                btn.onClick.AddListener(() => PlayGame(LevelId));
+                
+            }
+            else
+            {
+                btn.GetComponent<Image>().color = Color.black;
             }
         }
-
-       
-        menuDropdown.RefreshShownValue();
-        menuDropdown.onValueChanged.AddListener(OnDropdownValueChanged);
-    }
-
-    private void OnDropdownValueChanged(int index)
-    {        ;
-        PlayerPrefs.SetInt("level", mGameLevelConfig.GetGridSizeData()[index].Id);
-    }
+        
+    }    
 
     public void OnClickPlay()
     {
-        SceneManager.LoadSceneAsync("Gameplay");
+        SceneManager.LoadSceneAsync(SceneEnum.Gameplay.ToString());
+    }
+
+    public void PlayGame(int levelId)
+    {
+        GameStatusData gameStatusData = new GameStatusData(levelId);
+        PersistentStorage.Instance.Save(StorageEnum.GameStatus.ToString(), gameStatusData);
+        SceneManager.LoadSceneAsync(SceneEnum.Gameplay.ToString());
     }
 }

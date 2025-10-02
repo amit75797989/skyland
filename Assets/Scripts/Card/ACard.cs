@@ -8,6 +8,7 @@ namespace CardMatchGame
         protected CardData cardData;
         protected bool isFlipped = false;
         protected bool isMatched = false;
+        public int cardIndex;
 
         public bool IsMatched => isMatched;
         public bool IsFlipped => isFlipped;
@@ -19,11 +20,11 @@ namespace CardMatchGame
                 return flipTime;
             }
         }
-        public int CardId
+        public int CardIndex
         {
             get
             {
-                return cardData.CardId;
+                return cardIndex;
             }
         }
 

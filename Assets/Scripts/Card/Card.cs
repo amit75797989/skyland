@@ -17,6 +17,7 @@ namespace CardMatchGame
         private void Awake()
         {
             mBackIcon = mCardIcon.sprite;
+            cardIndex=transform.GetSiblingIndex();
         }
 
         public override void InitCard(CardData data)

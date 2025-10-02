@@ -1,3 +1,15 @@
+/*
+ * ---------------------------------------------------------------
+ * Author      : Amit Pandey
+ * Email       : ap3400568@gmail.com
+ * Role        : Unity Developer
+ * 
+ * Summary     : This script handles Audio play system in gameplay
+ *               
+ *
+ * ---------------------------------------------------------------
+ */
+
 using UnityEngine;
 
 public class AudioHandler : MonoBehaviour

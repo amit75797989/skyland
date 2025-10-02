@@ -1,3 +1,16 @@
+/*
+ * ---------------------------------------------------------------
+ * Author      : Amit Pandey
+ * Email       : ap3400568@gmail.com
+ * Role        : Unity Developer
+ * 
+ * Summary     : This script is scriptable object that is used to setup card details and Here add new card and remove card
+ *               
+ *
+ * ---------------------------------------------------------------
+ */
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

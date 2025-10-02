@@ -1,3 +1,16 @@
+/*
+ * ---------------------------------------------------------------
+ * Author      : Amit Pandey
+ * Email       : ap3400568@gmail.com
+ * Role        : Unity Developer
+ * 
+ * Summary     : This script is scriptable object that is used to setup level data of gameplay. Here we can add and remove game level
+ *               
+ *
+ * ---------------------------------------------------------------
+ */
+
+
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +27,7 @@ namespace CardMatchGame
         private void OnEnable()
         {
             gameLevelDataDic=new Dictionary<int, LevelData>();
-            for(int i = 0; i < gameLevelDataList.Length; i++)
+            for(int i = 0; gameLevelDataList!=null && i < gameLevelDataList.Length; i++)
             {
                 gameLevelDataDic.Add(gameLevelDataList[i].Id, gameLevelDataList[i]);
             }

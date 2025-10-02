@@ -1,3 +1,16 @@
+/*
+ * ---------------------------------------------------------------
+ * Author      : Amit Pandey
+ * Email       : ap3400568@gmail.com
+ * Role        : Unity Developer
+ * 
+ * Summary     : This script handles Gameobject's position distribution according to grid system provided row and coloum,spacing
+ *               
+ *
+ * ---------------------------------------------------------------
+ */
+
+
 using UnityEngine;
 using System.Collections.Generic;
 namespace CardMatchGame.Handler
